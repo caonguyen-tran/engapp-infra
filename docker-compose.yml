@@ -31,21 +31,6 @@ services:
     networks:
       - app_network
 
-  # Eureka Server
-  eureka-server:
-    build:
-      context: ./eureka-server
-    container_name: eureka-server
-    hostname: eureka-server
-    ports:
-      - '8761:8761'
-    environment:
-      - EUREKA_SERVER_PORT=8761
-    depends_on:
-      - kafka
-    networks:
-      - app_network
-
   # Kafka
   kafka:
     image: 'bitnami/kafka:3.7.0'
@@ -61,6 +46,21 @@ services:
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+    networks:
+      - app_network
+
+  # Eureka Server
+  eureka-server:
+    build:
+      context: ./eureka-server
+    container_name: eureka-server
+    hostname: eureka-server
+    ports:
+      - '8761:8761'
+    environment:
+      - EUREKA_SERVER_PORT=8761
+    depends_on:
+      - kafka
     networks:
       - app_network
 
