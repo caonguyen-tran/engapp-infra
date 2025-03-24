@@ -26,3 +26,11 @@ SSH to VMs with a username is: public key name and External IP like the shell be
 ```
 sudo ssh -i server.pem <username:rsa-key-20250324>@<external_IP>
 ```
+Install Docker and Docker Compose <br/>
+After that, using shell script to fix error "permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Head "http://%2Fvar%2Frun%2Fdocker.sock/_ping": dial unix /var/run/docker.sock: connect: permission denied" <br/>
+```
+sudo usermod -a -G docker $USER
+```
+```
+newgrp docker
+```
