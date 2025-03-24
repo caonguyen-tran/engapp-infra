@@ -6,14 +6,14 @@ Services included:
 - Mysql DB
 - Mongo DB
 
-Deploy to GCP by Docker compose:
-Using PuTTyGen to generate key pair: public key, private key
-Public key is saved in SSH keys (not a metadata)
-Install PuttyTools:
-'''
+Deploy to GCP by Docker compose:<br />
+Using PuTTyGen to generate key pair: public key, private key<br />
+Public key is saved in SSH keys (not a metadata) <br />
+Install PuttyTools:<br />
+```
 apt-get install putty-tools
-'''
-Convert PPK key to PEM key, using a shell pash:
-'''
+```
+Convert PPK key to PEM key, using a shell pash:<br />
+```
 puttygen server.ppk -O private-openssh -o server.pem
-'''
+```
